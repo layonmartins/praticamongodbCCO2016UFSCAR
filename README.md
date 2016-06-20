@@ -474,7 +474,7 @@ ___________________________________________________________
 
 ##Apagar a database
 Obs: apaga a database que está em use
-> -> db.dropDatabase()
+> -> db.dropDatabase()<br/>
 > -> show dbs
 
 
