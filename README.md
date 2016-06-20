@@ -6,8 +6,8 @@
 Estou usando o ubuntu com uma box vagrante, ubuntu 14.04 64X com o mongodb(3.2.7, mas roda no 2.0.4) instalado, configurado,  e executando.
 			OBS: Caso precisar! version 3.2.7!
 			//#Para iniciar o serviço mongo use: 
-			//-> sudo service mongod start
-			//-> sudo service mongod stop
+>  * sudo service mongod start<br/>
+>  * sudo service mongod stop<br/>
 
 Para seguir certifique-se que os processos descritos acima já estejam em funcionamento na sua máquina.
 
