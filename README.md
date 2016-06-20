@@ -20,7 +20,7 @@ com o mongodb(3.2.7, mas roda no 2.0.4) instalado, configurado,  e executando.
 
 
 #Informações:
-O # representa um novo tópico ou assunto.
+O '#' representa um novo tópico ou assunto.
 As // representa um comentário.
 O * mostra a sintaxe de um comando.
 Está -> (setinha) indica que você deve digitar o comando a frente no Shell Editor mongoDB e precionar enter.
@@ -163,7 +163,7 @@ Obs: inserir tudo de uma vez, porem não funciona na versão 2.0.4
 	}
 ])
 
-&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+#&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 #Inserir os FILMES separadamente p/ versão 2.0.4
 
 -> db.filme.insert(
@@ -226,7 +226,7 @@ ___________________________________________________________
 #Collection CLIENTE, obs: se o campo aluga estiver null então o cliente não tem filmes alugados, caso contrário a seguinte estrutura define um aluguel de uma fita:
 
 ---------------------------------------
-# aluga:[{
+ aluga:[{
 			"filme_id":"id do filme",
 			"nome":"nome do filme"
 			"fita":"id da fita",
@@ -236,7 +236,7 @@ ___________________________________________________________
 
 ___________________________________________________________
 
-Obs: inserindo clientes, alguns já com locação de filmes
+#Obs: inserindo clientes, alguns já com locação de filmes
 
 -> db.cliente.insert({
 	"_id":"1",
@@ -436,7 +436,7 @@ ___________________________________________________________
 #Devolver TODOS de uma vez:
 Obs: Por padrão o update só altera o primeiro registro que obedece a condição de busca, para alterar toda a collection e preciso ativar a propriedade 'multi' ou usar o .updateMany()
 
-&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 Only New version 3.2 ++, use: updateMany()
 
 -> db.cliente.update(
@@ -492,8 +492,7 @@ ___________________________________________________________
 ___________________________________________________________
 
 
-#Espero que estes exemplos foram uteis, e fáceis de se 
-compreender, obrigado por acompanhar.
+#Espero que estes exemplos foram uteis, e fáceis de se compreender, obrigado por acompanhar.
 
  God bless you.
 
