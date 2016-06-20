@@ -1,38 +1,39 @@
 #Prática mongodb Layon Martins Fonseca
-#Mestrado Ufscar, Aula de Banco de Dados
-#Apresentação de trabalho NoSql 22/06/2016
-#Banco de Dados Orientado a documentos, MongoDB
+##Mestrado Ufscar, Aula de Banco de Dados
+###Apresentação de trabalho NoSql 22/06/2016
+####Banco de Dados Orientado a documentos, MongoDB
 
-#Estou usando o ubuntu com uma box vagrante, ubuntu 14.04 64X
-com o mongodb(3.2.7, mas roda no 2.0.4) instalado, configurado,  e executando.
+Estou usando o ubuntu com uma box vagrante, ubuntu 14.04 64X com o mongodb(3.2.7, mas roda no 2.0.4) instalado, configurado,  e executando.
 			OBS: Caso precisar! version 3.2.7!
 			//#Para iniciar o serviço mongo use: 
 			//-> sudo service mongod start
 			//-> sudo service mongod stop
 
-#Para seguir certifique-se que os processos descritos acima já estejam em funcionamento na sua máquina.
+Para seguir certifique-se que os processos descritos acima já estejam em funcionamento na sua máquina.
+
+___________________________________________________________
 
 #Comandos básicos vagrant:
- 1 - Ligar máquina -> vagrant up
- 2 - Acessar ssh -> vagrant ssh
- 3 - Deslogar ssh -> Ctrl+D
- 4 - Desligar máquiva virtual -> vagrant halt
+ - Ligar máquina -> vagrant up
+ - Acessar ssh -> vagrant ssh
+ - Deslogar ssh -> Ctrl+D
+ - Desligar máquiva virtual -> vagrant halt
 
 
 #Informações:
-O '#' representa um novo tópico ou assunto.
-As // representa um comentário.
-O * mostra a sintaxe de um comando.
-Está -> (setinha) indica que você deve digitar o comando a frente no Shell Editor mongoDB e precionar enter.
-R: representa um retorno que deve ser obtido.
-&&&&&&&&&&&&&&&&&& preste atenção.
-Obs, é uma explicação.
+- O '#' representa um novo tópico ou assunto.
+- As // representa um comentário.
+- O * mostra a sintaxe de um comando.
+- Está -> (setinha) indica que você deve digitar o comando a frente no Shell Editor mongoDB e precionar enter.
+- R: representa um retorno que deve ser obtido.
+- &&&&&&&&&&&&&&&&&& preste atenção.
+- Obs, é uma explicação.
 
 O tutorial geralmente segue a seguinte regra:
-1 - Fala sobre uma operação.
-2 - Explica a sintaxe.
-3 - E oferece um exemplo para testar.
-4 - Para entender e preciso consultar o modelo dos dados mostrado nas apresentações do slide.
+ - Fala sobre uma operação.
+ - Explica a sintaxe.
+ - E oferece um exemplo para testar.
+ - Para entender e preciso consultar o modelo dos dados mostrado nas apresentações do slide.
 
 
 ###########################################################
@@ -40,49 +41,49 @@ O tutorial geralmente segue a seguinte regra:
 ###########################################################
 
 ___________________________________________________________
-#Acessar mongodb
+##Acessar mongodb
 -> mongo
 R: 	MongoDB shell version: 2.0.4
 	connecting to: test
 	> 
 
 
-#Exibir databases
-* show dbs
+##Exibir databases
+- * show dbs
 
-#Criar um exemplo de teste
+##Criar um exemplo de teste
 -> use test
 -> db.teste.insert({"HELLO":"WORLD"})
 -> db.teste.find()
 -> db.dropDatabase()
 
-#Criar uma database ou usar uma database
+##Criar uma database ou usar uma database
 //obs, a db não é criada instantaneamente, e preciso inserir uma collection
-* use nomedatabase
+- * use nomedatabase
 -> use locadora 
 R: switched to db locadora
 
 
-#Exibir collections
-* show collections
+##Exibir collections
+- * show collections
 
 
-#Verificar uma collection
-* db.nomeCollection.count() //retorna quantidade de documentos
+##Verificar uma collection
+- * db.nomeCollection.count() //retorna quantidade de documentos
 -> db.ator.count()
 R: 0
 
 ___________________________________________________________
 
-#Para criar uma collection, e preciso inserir um documento
-* db.nomeCollection.insert({JSON})
-___________________________________________________________
+##Para criar uma collection, e preciso inserir um documento
+- * db.nomeCollection.insert({JSON})
+
 
 ###########################################################
 ####### Vamos começar criando nossas collections :) #######
 ###########################################################
 
-#Collection ATOR: obs: o id é nome artistico único na collection
+##Collection ATOR: obs: o id é nome artistico único na collection
 
 -> db.ator.insert({
 	"_id":"Beatrix",
@@ -115,8 +116,8 @@ ___________________________________________________________
 
 ___________________________________________________________
 
-#Collection FILME: o id é o nome do filme + ano de lançamento
-Obs: inserir tudo de uma vez, porem não funciona na versão 2.0.4
+##Collection FILME: o id é o nome do filme + ano de lançamento
+###&&&&&Obs: inserir tudo de uma vez, porem não funciona na versão 2.0.4
 
 -> db.filme.insert([
 	{
@@ -163,8 +164,8 @@ Obs: inserir tudo de uma vez, porem não funciona na versão 2.0.4
 	}
 ])
 
-#&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
-#Inserir os FILMES separadamente p/ versão 2.0.4
+
+##&&&&&Inserir os FILMES separadamente p/ versão 2.0.4
 
 -> db.filme.insert(
 	{
@@ -223,20 +224,19 @@ Obs: inserir tudo de uma vez, porem não funciona na versão 2.0.4
 
 ___________________________________________________________
 
-#Collection CLIENTE, obs: se o campo aluga estiver null então o cliente não tem filmes alugados, caso contrário a seguinte estrutura define um aluguel de uma fita:
+##Collection CLIENTE, obs: se o campo aluga estiver null então o cliente não tem filmes alugados, caso contrário a seguinte estrutura define um aluguel de uma fita:
 
 ---------------------------------------
  aluga:[{
 			"filme_id":"id do filme",
 			"nome":"nome do filme"
 			"fita":"id da fita",
-			"data":"data da locação"
-		}]
+			"data":"data da locação"}]
 ---------------------------------------
 
 ___________________________________________________________
 
-#Obs: inserindo clientes, alguns já com locação de filmes
+##Obs: inserindo clientes, alguns já com locação de filmes
 
 -> db.cliente.insert({
 	"_id":"1",
@@ -303,53 +303,53 @@ ___________________________________________________________
 
 ___________________________________________________________
 
-#Busca todos os documentos
-* db.nomeCollection.find()
+##Busca todos os documentos
+- * db.nomeCollection.find()
 
 
-#Busca com parâmetros <Condição de Busca>
-* db.nomeCollection.find({parâmetros})
+##Busca com parâmetros <Condição de Busca>
+- * db.nomeCollection.find({parâmetros})
 
-#Deixar a consulta mais legível .pretty()
-* db.nomeCollection.find().pretty()
+##Deixar a consulta mais legível .pretty()
+- * db.nomeCollection.find().pretty()
 
 -> db.ator.find().pretty()
 -> db.filme.find().pretty()
 -> db.cliente.find().pretty()
 
-#Sort, Nosso orderby decrescecente -1, crescente 1
+##Sort, Nosso orderby decrescecente -1, crescente 1
 -> db.filme.find().sort({_id: -1}).pretty()
 -> db.ator.find().sort({"_id": 1}).pretty()
 
 
-#Buscar filmes de Aventura {PARÂMETROS}
+##Buscar filmes de Aventura {PARÂMETROS}
 -> db.filme.find({"categoria":"Aventura"}).pretty()
 
-#Buscar filme de ação, obs: exibir só o nome
+##Buscar filme de ação, obs: exibir só o nome
 -> db.filme.find({"categoria":"Ação"},{"nome":true}).pretty()
 
-#Buscar filme de ação, obs: exibir só o nome, sem exibir _id
+##Buscar filme de ação, obs: exibir só o nome, sem exibir _id
 -> db.filme.find({"categoria":"Ação"},{"_id":false, "nome":true})
 
-#Buscar somente nome dos clientes, obs: ordenado
+##Buscar somente nome dos clientes, obs: ordenado
 -> db.cliente.find({}, {"_id":false,"nome":true}).sort({"nome":1})
 
-#Buscar nome dos clientes que NÃO estão com filme locados
+##Buscar nome dos clientes que NÃO estão com filme locados
 -> db.cliente.find({"aluga":null},{"_id":false, "nome":true}).sort({"nome":1})
 
-#Buscar nome dos clientes com filmes pendentes
+##Buscar nome dos clientes com filmes pendentes
 -> db.cliente.find({"aluga":{$ne:null}},{"_id":false, "nome":true}).sort({"nome":1})
 
-#Busca o primeiro cliente na collection
+##Busca o primeiro cliente na collection
 -> db.cliente.findOne()
 
-#Buscar cliente que alugou dois filmes específicos com AND
+##Buscar cliente que alugou dois filmes específicos com AND
 -> db.cliente.find({"aluga.filme_id":"killbill2003", "aluga.filme_id":"killbill2004"}).pretty()
 
-#Buscar cliente que alugou um filme ou outro com OR
+##Buscar cliente que alugou um filme ou outro com OR
 -> db.cliente.find({$or:[{"aluga.filme_id":"eusoualenda2007"}, {"aluga.filme_id":"hancock2008"}]}).pretty()
 
-#Operadores de busca:
+###Operadores de busca:
 	$gt maior que (greater-than)
 	$gte igual ou maior que (greater-than or equal to)
 	$lt menor que (less-than)
@@ -370,32 +370,32 @@ ___________________________________________________________
 
 ___________________________________________________________
 
-#Update
+##Update
 Obs: Tome cuidado com o update além de alterar um valor, 
 e possível alterar toda a estrutura do documento e removendo campos sem querer, você pode acabar com sua vida!!!
 
-#Por exemplo:
+###Por exemplo:
 
-* db.nomeCollection.update(
+- * db.nomeCollection.update(
 	{"_id":"buscando um id"},
 	{"nomeCampoparaAlterar":"novoValor"})
 
-obs: ao executar este comando, o documento correspondente a esse _id teve o nomeCamp. alterado, porém todos os outros campos foram apagados, caso o documento tivesse.
+> obs: ao executar este comando, o documento correspondente a esse _id teve o nomeCamp. alterado, porém todos os outros campos foram apagados, caso o documento tivesse.
 
 
-#Para ter um comportamento igual do update SQL, usamos o set
-* db.nomeCollection.update(
+##Para ter um comportamento igual do update SQL, usamos o set
+- * db.nomeCollection.update(
 	{"creterioDeBusca1":"valor1",...},
 	{ $set: {"campoParaAtualizar1":"novoValor1"},...}
 )
 
-Obs: Agora sim ele só vai alterar o campo passado no set, os outros que estiver no documente irão permanecer sem alteração.
+>Obs: Agora sim ele só vai alterar o campo passado no set, os outros que estiver no documente irão permanecer sem alteração.
 
 
 
 ___________________________________________________________
 
-#Alugar um filme
+##Alugar um filme
 obs: p/ alugar o filme, na collection cliente acrescentamos com um update os dados de um aluguel de um filme
 
 -> db.cliente.update(
@@ -422,8 +422,8 @@ obs: p/ alugar o filme, na collection cliente acrescentamos com um update os dad
 
 ___________________________________________________________
 
-#Devolver um filme
-obs: p/ devolver, na collection cliente alteramos o campo aluga para o valor null, informando que não há mais filme alugados
+##Devolver um filme
+> obs: p/ devolver, na collection cliente alteramos o campo aluga para o valor null, informando que não há mais filme alugados
 
 -> db.cliente.update(
 		{"_id":"1"},
@@ -433,11 +433,11 @@ obs: p/ devolver, na collection cliente alteramos o campo aluga para o valor nul
 
 ___________________________________________________________
 
-#Devolver TODOS de uma vez:
+##Devolver TODOS de uma vez:
 Obs: Por padrão o update só altera o primeiro registro que obedece a condição de busca, para alterar toda a collection e preciso ativar a propriedade 'multi' ou usar o .updateMany()
 
-&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
-Only New version 3.2 ++, use: updateMany()
+> &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+> Only New version 3.2 ++, use: updateMany()
 
 -> db.cliente.update(
 		{ },
@@ -460,23 +460,23 @@ ___________________________________________________________
 
 ___________________________________________________________
 
-#Remover
+##Remover
 //Para excluir um documento use:
-* db.nomeCollection.remove({"campBusca":"valorBusca"}) 
+- * db.nomeCollection.remove({"campBusca":"valorBusca"}) 
 
 -> db.filme.remove({"_id":"ovoododragao1972"})
 -> db.filme.find({},{"_id":1})
 
-#Para remover todos os registros de uma collection:
-* db.nomeCollection.remove({})
+##Para remover todos os registros de uma collection:
+- * db.nomeCollection.remove({})
 -> db.ator.remove({})
 -> db.ator.count()
 
-#Para remover a Collection
+##Para remover a Collection
 db.nomeCollection.drop()
 -> db.cliente.drop()
 
-#Apagar a database
+##Apagar a database
 Obs: apaga a database que está em use
 -> db.dropDatabase()
 -> show dbs
@@ -492,7 +492,7 @@ ___________________________________________________________
 ___________________________________________________________
 
 
-#Espero que estes exemplos foram uteis, e fáceis de se compreender, obrigado por acompanhar.
+###Espero que estes exemplos foram uteis, e fáceis de se compreender, obrigado por acompanhar.
 
- God bless you.
+##God bless you.
 
