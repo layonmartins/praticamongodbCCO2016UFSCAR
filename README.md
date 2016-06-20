@@ -43,7 +43,7 @@ O tutorial geralmente segue a seguinte regra:
 ___________________________________________________________
 ##Acessar mongodb
 -> mongo<br/>
-R: 	MongoDB shell version: 2.0.4
+R: 	MongoDB shell version: 3.2.7
 	connecting to: test
 	> 
 
