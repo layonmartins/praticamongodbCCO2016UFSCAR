@@ -432,7 +432,7 @@ ___________________________________________________________
 ##Devolver TODOS de uma vez:
 Obs: Por padrão o update só altera o primeiro registro que obedece a condição de busca, para alterar toda a collection e preciso ativar a propriedade 'multi' ou usar o .updateMany()
 
-> &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+> &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&<br/>
 > Only New version 3.2 ++, use: updateMany()
 
 > -> db.cliente.update(
